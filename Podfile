@@ -6,7 +6,7 @@ inhibit_all_warnings!
 
 def common_pods
 #网络框架
-    pod 'Moya', '~> 11.0'   
+    pod 'Alamofire'
 #网络状态
     pod 'ReachabilitySwift'  
 #layout

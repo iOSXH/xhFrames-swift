@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        log.info(kGetString(nil))
+        
+        BaseAPIService.sharedAPIService.request(baseUrl: nil, path: UserAPI.Login.rawValue, method: .Post, params: nil) { (result, error) in
+            
+            log.debug("BaseAPIService \(String(describing: result)) \(String(describing: error))")
+        }
     }
 
 

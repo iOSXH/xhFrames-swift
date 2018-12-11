@@ -15,6 +15,12 @@
 		DDFDF18421BE5DAB00B1FC31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFDF18221BE5DAB00B1FC31 /* LaunchScreen.storyboard */; };
 		DDFDF18F21BE5DAB00B1FC31 /* xhFrames_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF18E21BE5DAB00B1FC31 /* xhFrames_swiftTests.swift */; };
 		DDFDF19A21BE5DAB00B1FC31 /* xhFrames_swiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF19921BE5DAB00B1FC31 /* xhFrames_swiftUITests.swift */; };
+		DDFDF1AB21BE689B00B1FC31 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1AA21BE689B00B1FC31 /* Constants.swift */; };
+		DDFDF1AE21BF89D000B1FC31 /* CustomConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1AD21BF89D000B1FC31 /* CustomConstants.swift */; };
+		DDFDF1B221BF8B0100B1FC31 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1B121BF8B0100B1FC31 /* UserModel.swift */; };
+		DDFDF1B521BF8BC200B1FC31 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1B421BF8BC200B1FC31 /* AccountManager.swift */; };
+		DDFDF1BA21BF8D1500B1FC31 /* BaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1B921BF8D1500B1FC31 /* BaseAPIService.swift */; };
+		DDFDF1BD21BF9E1500B1FC31 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1BC21BF9E1500B1FC31 /* APIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +57,12 @@
 		DDFDF19521BE5DAB00B1FC31 /* xhFrames-swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xhFrames-swiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFDF19921BE5DAB00B1FC31 /* xhFrames_swiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xhFrames_swiftUITests.swift; sourceTree = "<group>"; };
 		DDFDF19B21BE5DAC00B1FC31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDFDF1A821BE610800B1FC31 /* CommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonHeader.h; sourceTree = "<group>"; };
+		DDFDF1AA21BE689B00B1FC31 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DDFDF1AD21BF89D000B1FC31 /* CustomConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomConstants.swift; sourceTree = "<group>"; };
+		DDFDF1B121BF8B0100B1FC31 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		DDFDF1B421BF8BC200B1FC31 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		DDFDF1B921BF8D1500B1FC31 /* BaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIService.swift; sourceTree = "<group>"; };
+		DDFDF1BC21BF9E1500B1FC31 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +134,9 @@
 			isa = PBXGroup;
 			children = (
 				DDFDF1A721BE60E600B1FC31 /* Headers */,
+				DDFDF1B021BF8AEF00B1FC31 /* Models */,
+				DDFDF1B321BF8B8D00B1FC31 /* Managers */,
+				DDFDF1B721BF8C1900B1FC31 /* Services */,
 				DDFDF17921BE5DA900B1FC31 /* AppDelegate.swift */,
 				DDFDF17B21BE5DA900B1FC31 /* ViewController.swift */,
 				DDFDF17D21BE5DA900B1FC31 /* Main.storyboard */,
@@ -154,9 +168,43 @@
 		DDFDF1A721BE60E600B1FC31 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				DDFDF1A821BE610800B1FC31 /* CommonHeader.h */,
+				DDFDF1AA21BE689B00B1FC31 /* Constants.swift */,
+				DDFDF1AD21BF89D000B1FC31 /* CustomConstants.swift */,
 			);
 			path = Headers;
+			sourceTree = "<group>";
+		};
+		DDFDF1B021BF8AEF00B1FC31 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDFDF1B121BF8B0100B1FC31 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DDFDF1B321BF8B8D00B1FC31 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DDFDF1B421BF8BC200B1FC31 /* AccountManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DDFDF1B721BF8C1900B1FC31 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DDFDF1B821BF8C1900B1FC31 /* Bases */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DDFDF1B821BF8C1900B1FC31 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				DDFDF1BC21BF9E1500B1FC31 /* APIConstants.swift */,
+				DDFDF1B921BF8D1500B1FC31 /* BaseAPIService.swift */,
+			);
+			path = Bases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +219,7 @@
 				DDFDF17321BE5DA900B1FC31 /* Frameworks */,
 				DDFDF17421BE5DA900B1FC31 /* Resources */,
 				7F5F028B641DB4E1180DC8FD /* [CP] Embed Pods Frameworks */,
+				DDFDF1AC21BF58D000B1FC31 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -325,10 +374,8 @@
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
@@ -344,10 +391,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
@@ -358,6 +403,23 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xhFrames-swift/Pods-xhFrames-swift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DDFDF1AC21BF58D000B1FC31 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -365,8 +427,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFDF1AE21BF89D000B1FC31 /* CustomConstants.swift in Sources */,
 				DDFDF17C21BE5DA900B1FC31 /* ViewController.swift in Sources */,
 				DDFDF17A21BE5DA900B1FC31 /* AppDelegate.swift in Sources */,
+				DDFDF1BA21BF8D1500B1FC31 /* BaseAPIService.swift in Sources */,
+				DDFDF1BD21BF9E1500B1FC31 /* APIConstants.swift in Sources */,
+				DDFDF1B221BF8B0100B1FC31 /* UserModel.swift in Sources */,
+				DDFDF1AB21BE689B00B1FC31 /* Constants.swift in Sources */,
+				DDFDF1B521BF8BC200B1FC31 /* AccountManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

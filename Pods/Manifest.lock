@@ -6,16 +6,10 @@ PODS:
   - KMNavigationBarTransition (1.1.5)
   - lottie-ios (2.5.2)
   - MJRefresh (3.1.15.7)
-  - Moya (11.0.2):
-    - Moya/Core (= 11.0.2)
-  - Moya/Core (11.0.2):
-    - Alamofire (~> 4.1)
-    - Result (~> 3.0)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - ReachabilitySwift (4.3.0)
-  - Result (3.2.4)
   - SnapKit (4.2.0)
   - SwiftTheme (0.4.3)
   - XCGLogger (6.1.0):
@@ -24,13 +18,13 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - Alamofire
   - DZNEmptyDataSet
   - Hue
   - Kingfisher
   - KMNavigationBarTransition
   - lottie-ios
   - MJRefresh
-  - Moya (~> 11.0)
   - ReachabilitySwift
   - SnapKit
   - SwiftTheme
@@ -45,10 +39,8 @@ SPEC REPOS:
     - KMNavigationBarTransition
     - lottie-ios
     - MJRefresh
-    - Moya
     - ObjcExceptionBridging
     - ReachabilitySwift
-    - Result
     - SnapKit
     - SwiftTheme
     - XCGLogger
@@ -61,14 +53,12 @@ SPEC CHECKSUMS:
   KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftTheme: 628345b948068a48d330d76dffb1a990ea5f90aa
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 86512a60350ddaf7e1ef58a9cf5156022371d5c4
+PODFILE CHECKSUM: 496949305ae1a586c10c00d64e8aa1d31e3761c2
 
 COCOAPODS: 1.5.3

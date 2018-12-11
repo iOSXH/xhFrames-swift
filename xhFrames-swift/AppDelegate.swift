@@ -9,6 +9,7 @@
 import UIKit
 import XCGLogger
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -50,8 +51,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// 设置初始化第三方库
     func setupThirdLibs(){
         
-        let log = XCGLogger.default
-        log.setup(level: .debug, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: "logs", fileLevel: .debug)
+        
     }
 }
 
+
+
+
+/// 日志初始化
+let log: XCGLogger = {
+    
+    let log = XCGLogger.default
+    let cachePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+    
+    let logPath: URL = NSURL.fileURL(withPath: cachePath.appendingPathComponent("XCGLogger_Logs.txt"))
+    
+    
+    if DebugModel == true {
+        log.setup(level: .debug, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: logPath, fileLevel: .debug)
+    }else{
+        log.setup(level: .info, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: logPath, fileLevel: .info)
+    }
+    
+    
+    let emojiLogFormatter = PrePostFixLogFormatter()
+    emojiLogFormatter.apply(prefix: "①verbose🗯:\n", postfix: "\n🗯", to: .verbose)
+    emojiLogFormatter.apply(prefix: "②debug🔹:\n", postfix: "\n🔹", to: .debug)
+    emojiLogFormatter.apply(prefix: "③infoℹ️:\n", postfix: "\nℹ️", to: .info)
+    emojiLogFormatter.apply(prefix: "④warning⚠️:\n", postfix: "\n⚠️", to: .warning)
+    emojiLogFormatter.apply(prefix: "⑤error‼️:\n", postfix: "\n‼️", to: .error)
+    emojiLogFormatter.apply(prefix: "⑥severe💣:\n", postfix: "\n💣", to: .severe)
+    log.formatters = [emojiLogFormatter]
+    
+    if let fileDestination: FileDestination = log.destination(withIdentifier: XCGLogger.Constants.fileDestinationIdentifier) as? FileDestination {
+        let ansiColorLogFormatter: ANSIColorLogFormatter = ANSIColorLogFormatter()
+        ansiColorLogFormatter.colorize(level: .verbose, with: .colorIndex(number: 244), options: [.faint])
+        ansiColorLogFormatter.colorize(level: .debug, with: .black)
+        ansiColorLogFormatter.colorize(level: .info, with: .blue, options: [.underline])
+        ansiColorLogFormatter.colorize(level: .warning, with: .red, options: [.faint])
+        ansiColorLogFormatter.colorize(level: .error, with: .red, options: [.bold])
+        ansiColorLogFormatter.colorize(level: .severe, with: .white, on: .red)
+        fileDestination.formatters = [ansiColorLogFormatter]
+    }
+    
+    // Add basic app info, version info etc, to the start of the logs
+    log.logAppDetails()
+    
+    
+    
+    return log;
+}()
