@@ -21,6 +21,7 @@
 		DDFDF1B521BF8BC200B1FC31 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1B421BF8BC200B1FC31 /* AccountManager.swift */; };
 		DDFDF1BA21BF8D1500B1FC31 /* BaseAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1B921BF8D1500B1FC31 /* BaseAPIService.swift */; };
 		DDFDF1BD21BF9E1500B1FC31 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1BC21BF9E1500B1FC31 /* APIConstants.swift */; };
+		DDFDF1BF21BFD1C800B1FC31 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF1BE21BFD1C800B1FC31 /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		DDFDF1B421BF8BC200B1FC31 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		DDFDF1B921BF8D1500B1FC31 /* BaseAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPIService.swift; sourceTree = "<group>"; };
 		DDFDF1BC21BF9E1500B1FC31 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		DDFDF1BE21BFD1C800B1FC31 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				DDFDF1B821BF8C1900B1FC31 /* Bases */,
+				DDFDF1BC21BF9E1500B1FC31 /* APIConstants.swift */,
+				DDFDF1BE21BFD1C800B1FC31 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -201,7 +205,6 @@
 		DDFDF1B821BF8C1900B1FC31 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
-				DDFDF1BC21BF9E1500B1FC31 /* APIConstants.swift */,
 				DDFDF1B921BF8D1500B1FC31 /* BaseAPIService.swift */,
 			);
 			path = Bases;
@@ -369,14 +372,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-xhFrames-swift/Pods-xhFrames-swift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/StatefulViewController/StatefulViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -386,14 +390,15 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatefulViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -429,6 +434,7 @@
 			files = (
 				DDFDF1AE21BF89D000B1FC31 /* CustomConstants.swift in Sources */,
 				DDFDF17C21BE5DA900B1FC31 /* ViewController.swift in Sources */,
+				DDFDF1BF21BFD1C800B1FC31 /* UserService.swift in Sources */,
 				DDFDF17A21BE5DA900B1FC31 /* AppDelegate.swift in Sources */,
 				DDFDF1BA21BF8D1500B1FC31 /* BaseAPIService.swift in Sources */,
 				DDFDF1BD21BF9E1500B1FC31 /* APIConstants.swift in Sources */,

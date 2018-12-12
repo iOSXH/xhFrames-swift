@@ -8,19 +8,6 @@
 
 import Foundation
 
-struct APIError : Error {
-    var code:Int = 0
-    var domain:String = ""
-    var desc:String = ""
-    init(_ code:Int, _ domain:String, _ desc:String) {
-        self.code = code
-        self.domain = domain
-        self.desc = desc
-    }
-}
-
-let kHttpErrorDomain:String = "kHttpErrorDomain"
-let kCustomErrorDomain:String = "kCustomErrorDomain"
 
 /// API地址
 let kBase_Api_Url:String = "https://passport.tigerobo.com/api"

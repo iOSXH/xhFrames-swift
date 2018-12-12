@@ -16,20 +16,21 @@ def common_pods
 #hex颜色
     pod 'Hue'               
 #主题
-    pod 'SwiftTheme'        
-#权限管理
-#pod 'PermissionScope'   
+    pod 'SwiftTheme'
 #日志
     pod 'XCGLogger' 
 #nav 
     pod 'KMNavigationBarTransition'
-
+#HUD
+    pod 'PKHUD'
+#empty pod 'DZNEmptyDataSet'
+    pod 'StatefulViewController'
 
     pod 'lottie-ios'
-    pod 'DZNEmptyDataSet'
-
     pod 'MJRefresh'
-
+    
+    #权限管理
+    #pod 'PermissionScope'
     
 end
 
