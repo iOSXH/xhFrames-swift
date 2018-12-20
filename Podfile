@@ -8,7 +8,9 @@ def common_pods
 #网络框架
     pod 'Alamofire'
 #网络状态
-    pod 'ReachabilitySwift'  
+    pod 'ReachabilitySwift'
+#JSON-Model
+    pod 'SwiftyJSON'
 #layout
     pod 'SnapKit'    
 #图片缓存框架

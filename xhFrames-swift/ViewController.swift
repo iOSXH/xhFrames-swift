@@ -16,9 +16,10 @@ class ViewController: UIViewController {
         
         log.info(kGetString(nil))
         
-        BaseAPIService.sharedAPIService.request(baseUrl: nil, path: UserAPI.Login.rawValue, method: .Post, params: nil) { (result, error) in
-            
-            log.debug("BaseAPIService \(String(describing: result)) \(String(describing: error))")
+        UserService.loginWithWechat(success: { (msg) in
+            log.info("\(kGetString(msg))")
+        }) { (error) in
+            log.info("\(kGetString(error))")
         }
     }
 

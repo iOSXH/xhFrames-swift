@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import SwiftyJSON
 
 struct APIError : Error {
     var code:Int = 0
@@ -21,6 +21,32 @@ struct APIError : Error {
     }
 }
 
+class APIResult : NSObject {
+    var code:Int? = 0
+    var msg:String? = ""
+    var data:JSON? = nil
+    
+    class func jsonModel(_ data:Data?) -> APIResult {
+        
+        let apiResult:APIResult = APIResult.init()
+        
+        
+        if data != nil{
+            do {
+                let json = try JSON(data: data!)
+                apiResult.code = json["code"].int
+                apiResult.msg = json["message"].string
+                apiResult.data = json["data"]
+            } catch {
+                
+            }
+        }
+        
+        return apiResult
+        
+    }
+}
+
 let kHttpErrorDomain:String = "kHttpErrorDomain"
 let kCustomErrorDomain:String = "kCustomErrorDomain"
 
@@ -29,7 +55,7 @@ enum APIMethod:Int {
     case Get = 1
 }
 
-typealias APICompleteResult = (_ result: Dictionary<String, Any>?, _ error: Error?) -> Void
+typealias APICompleteResult = (_ result: APIResult?, _ error: APIError?) -> Void
 
 class BaseAPIService: NSObject {
     
@@ -120,27 +146,34 @@ class BaseAPIService: NSObject {
         
         log.debug("请求结束\n baseUrl: \(String(describing: response.request?.url)) \n data: \(String(describing: response.data)) \n result: \(String(describing: response.value)) \n error: \(String(describing: response.error))")
         
-        let resultDic:Dictionary<String, Any> = response.value as! Dictionary<String, Any>
-        let errorCode:Int = resultDic["code"] as! Int
         
         if response.error != nil {
             
-            var error = response.error;
-            if error is AFError {
-                let afEr:AFError = error as! AFError
+            var error:APIError? = nil;
+            if response.error is AFError {
+                let afEr:AFError = response.error as! AFError
                 error = APIError.init(afEr.responseCode ?? 0, kHttpErrorDomain, afEr.localizedDescription)
+            }else{
+                error = APIError.init(0, kHttpErrorDomain, "")
             }
             if complete != nil {
                 complete!(nil, error)
             }
         }else{
-            if errorCode == serviceSuccessCode {
+            
+//
+//            let jsonObject = JSONSerialization.jsonObject(with: response.data, options: .allowFragments)
+//
+            let apiResult:APIResult = APIResult.jsonModel(response.data)
+            
+            
+            if apiResult.code == serviceSuccessCode {
                 if complete != nil {
-                    complete!(resultDic, nil)
+                    complete!(apiResult, nil)
                 }
             }else{
-                let errorMsg:String = resultDic["message"] as! String
-                let error:Error = APIError.init(errorCode, kCustomErrorDomain, errorMsg)
+                let errorMsg:String = apiResult.msg == nil ? "" : apiResult.msg!
+                let error:APIError = APIError.init(apiResult.code == nil ? 0 : apiResult.code!, kCustomErrorDomain, errorMsg)
                 if complete != nil {
                     complete!(nil, error)
                 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class UserService: NSObject {
-    static let UserAPIService:BaseAPIService = {
+    static let APIService:BaseAPIService = {
         let service = BaseAPIService();
         service.serviceBaseURL = DevelopMode ? kBase_Api_Url_Dev : kBase_Api_Url;
         service.serviceSuccessCode = 0
@@ -20,8 +20,13 @@ class UserService: NSObject {
         return service;
     }();
     
-    func loginWithWechat() -> Void {
-        
+    
+    
+    
+    class func loginWithWechat(success:(_ msg: String?) -> Void, failure:(_ error: Error?) -> Void) -> Void {
+        UserService.APIService.postRequest(path: UserAPI.Login.rawValue, params: nil) { (result:APIResult?, error:APIError?) in
+            
+        }
     }
     
 }

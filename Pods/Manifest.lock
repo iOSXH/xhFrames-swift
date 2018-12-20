@@ -13,6 +13,7 @@ PODS:
   - SnapKit (4.2.0)
   - StatefulViewController (3.0)
   - SwiftTheme (0.4.3)
+  - SwiftyJSON (4.2.0)
   - XCGLogger (6.1.0):
     - XCGLogger/Core (= 6.1.0)
   - XCGLogger/Core (6.1.0):
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - SnapKit
   - StatefulViewController
   - SwiftTheme
+  - SwiftyJSON
   - XCGLogger
 
 SPEC REPOS:
@@ -46,6 +48,7 @@ SPEC REPOS:
     - SnapKit
     - StatefulViewController
     - SwiftTheme
+    - SwiftyJSON
     - XCGLogger
 
 SPEC CHECKSUMS:
@@ -61,8 +64,9 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
   SwiftTheme: 628345b948068a48d330d76dffb1a990ea5f90aa
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 83edfe29a608cf20844ca5e44ffe2cb8835a8fe3
+PODFILE CHECKSUM: ce5e2fd47449cee6ebd02ccd9cec945b3b8ae2da
 
 COCOAPODS: 1.5.3
