@@ -23,9 +23,23 @@ class UserService: NSObject {
     
     
     
-    class func loginWithWechat(success:(_ msg: String?) -> Void, failure:(_ error: Error?) -> Void) -> Void {
+    class func loginWithWechat(success:((_ msg: String?) -> Void)?, failure:((_ error: Error?) -> Void)?) -> Void {
         UserService.APIService.postRequest(path: UserAPI.Login.rawValue, params: nil) { (result:APIResult?, error:APIError?) in
-            
+            if error != nil {
+                if failure != nil {
+                    failure!(error)
+                }
+            }else{
+                var apiResutlMsg:String? = nil
+                
+                if result != nil {
+                    apiResutlMsg = result!.msg
+                }
+                
+                if success != nil {
+                    success!(apiResutlMsg)
+                }
+            }
         }
     }
     

@@ -13,7 +13,7 @@ import UIKit
 /// debug模式
 let DebugModel = true
 /// 开发模式
-let DevelopMode = true
+let DevelopMode = false
 
 //MARK: 系统相关
 /// iOS系统版本

@@ -25,7 +25,7 @@ def common_pods
     pod 'KMNavigationBarTransition'
 #HUD
     pod 'PKHUD'
-#empty pod 'DZNEmptyDataSet'
+#empty
     pod 'StatefulViewController'
 
     pod 'lottie-ios'

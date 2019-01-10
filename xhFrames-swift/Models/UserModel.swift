@@ -9,5 +9,13 @@
 import UIKit
 
 class UserModel: NSObject {
+    var userId: Int?
+    var nickName: String?
+    var avatar: String?
+}
 
+
+class AccountModel: NSObject {
+    var user: UserModel?
+    var token: String?
 }

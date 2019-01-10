@@ -29,7 +29,8 @@ class APIResult : NSObject {
     class func jsonModel(_ data:Data?) -> APIResult {
         
         let apiResult:APIResult = APIResult.init()
-        
+        apiResult.code = -1
+        apiResult.msg = "no data"
         
         if data != nil{
             do {
@@ -144,7 +145,7 @@ class BaseAPIService: NSObject {
     ///   - complete: 解析完成
     private func analysisResult(_ response: DataResponse<Any>, _ complete: APICompleteResult?) -> Void {
         
-        log.debug("请求结束\n baseUrl: \(String(describing: response.request?.url)) \n data: \(String(describing: response.data)) \n result: \(String(describing: response.value)) \n error: \(String(describing: response.error))")
+        log.debug("请求结束\n baseUrl: \(String(describing: response.request?.url)) \n data: \(String(describing: response.data)) \n result: \(String(describing: response.value)) \n error: \(kGetString(response.error))")
         
         
         if response.error != nil {
@@ -165,7 +166,6 @@ class BaseAPIService: NSObject {
 //            let jsonObject = JSONSerialization.jsonObject(with: response.data, options: .allowFragments)
 //
             let apiResult:APIResult = APIResult.jsonModel(response.data)
-            
             
             if apiResult.code == serviceSuccessCode {
                 if complete != nil {

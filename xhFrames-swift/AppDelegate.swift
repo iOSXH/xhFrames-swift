@@ -68,9 +68,9 @@ let log: XCGLogger = {
     
     
     if DebugModel == true {
-        log.setup(level: .debug, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: logPath, fileLevel: .debug)
+        log.setup(level: .debug, showLogIdentifier: false, showFunctionName: false, showThreadName: false, showLevel: false, showFileNames: false, showLineNumbers: false, showDate: true, writeToFile: logPath, fileLevel: .debug)
     }else{
-        log.setup(level: .info, showLogIdentifier: true, showFunctionName: true, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true, showDate: true, writeToFile: logPath, fileLevel: .info)
+        log.setup(level: .info, showLogIdentifier: false, showFunctionName: false, showThreadName: false, showLevel: false, showFileNames: false, showLineNumbers: false, showDate: true, writeToFile: logPath, fileLevel: .info)
     }
     
     
@@ -95,7 +95,7 @@ let log: XCGLogger = {
     }
     
     // Add basic app info, version info etc, to the start of the logs
-    log.logAppDetails()
+//    log.logAppDetails()
     
     
     
