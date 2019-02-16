@@ -19,14 +19,18 @@ def common_pods
     pod 'Hue'               
 #主题
     pod 'SwiftTheme'
+#压缩
+    pod 'SSZipArchive'
 #日志
     pod 'XCGLogger' 
 #nav 
     pod 'KMNavigationBarTransition'
 #HUD
-    pod 'PKHUD'
+    pod 'MBProgressHUD'
 #empty
     pod 'StatefulViewController'
+#SegmentedView
+#    pod 'JXSegmentedView'
 
     pod 'lottie-ios'
     pod 'MJRefresh'

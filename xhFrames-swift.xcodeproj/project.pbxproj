@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		520B860DFCEF27A9FA8B3AD5 /* Pods_xhFrames_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBC899FC072B4281F28F42D /* Pods_xhFrames_swift.framework */; };
+		DD136A202217B1180009F812 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A1F2217B1180009F812 /* BaseViewController.swift */; };
+		DD136A222217B1480009F812 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A212217B1480009F812 /* BaseNavigationController.swift */; };
+		DD136A242217B1630009F812 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A232217B1630009F812 /* BaseTabBarController.swift */; };
+		DD136A272217DA660009F812 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A262217DA660009F812 /* MainTabBarController.swift */; };
+		DD136A2B2217DAC80009F812 /* BaseTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A2A2217DAC80009F812 /* BaseTabBar.swift */; };
+		DD136A302217E0720009F812 /* Dark.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD136A2D2217E0720009F812 /* Dark.plist */; };
+		DD136A312217E0720009F812 /* MyThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A2E2217E0720009F812 /* MyThemes.swift */; };
+		DD136A322217E0720009F812 /* Normal.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD136A2F2217E0720009F812 /* Normal.plist */; };
+		DD136A352217ED130009F812 /* Test1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A342217ED130009F812 /* Test1ViewController.swift */; };
+		DD136A372217ED200009F812 /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A362217ED200009F812 /* Test2ViewController.swift */; };
+		DD136A3B2217F7010009F812 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD136A3A2217F7010009F812 /* iconfont.ttf */; };
+		DD136A3D2217F7E50009F812 /* BaseTabBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A3C2217F7E50009F812 /* BaseTabBtn.swift */; };
 		DD15EF1621E0447D00096E20 /* BaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15EF1521E0447D00096E20 /* BaseExtensions.swift */; };
 		DDFDF17A21BE5DA900B1FC31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF17921BE5DA900B1FC31 /* AppDelegate.swift */; };
 		DDFDF17C21BE5DA900B1FC31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF17B21BE5DA900B1FC31 /* ViewController.swift */; };
@@ -46,6 +58,18 @@
 		6AF71CE1D0BB4DDA63764A8B /* Pods-xhFrames-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xhFrames-swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xhFrames-swift/Pods-xhFrames-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		ABBC899FC072B4281F28F42D /* Pods_xhFrames_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_xhFrames_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9726395F525D2C644A975E4 /* Pods-xhFrames-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xhFrames-swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-xhFrames-swift/Pods-xhFrames-swift.release.xcconfig"; sourceTree = "<group>"; };
+		DD136A1F2217B1180009F812 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DD136A212217B1480009F812 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		DD136A232217B1630009F812 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		DD136A262217DA660009F812 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		DD136A2A2217DAC80009F812 /* BaseTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBar.swift; sourceTree = "<group>"; };
+		DD136A2D2217E0720009F812 /* Dark.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Dark.plist; sourceTree = "<group>"; };
+		DD136A2E2217E0720009F812 /* MyThemes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyThemes.swift; sourceTree = "<group>"; };
+		DD136A2F2217E0720009F812 /* Normal.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Normal.plist; sourceTree = "<group>"; };
+		DD136A342217ED130009F812 /* Test1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test1ViewController.swift; sourceTree = "<group>"; };
+		DD136A362217ED200009F812 /* Test2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
+		DD136A3A2217F7010009F812 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		DD136A3C2217F7E50009F812 /* BaseTabBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBtn.swift; sourceTree = "<group>"; };
 		DD15EF1521E0447D00096E20 /* BaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseExtensions.swift; sourceTree = "<group>"; };
 		DDFDF17621BE5DA900B1FC31 /* xhFrames-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xhFrames-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFDF17921BE5DA900B1FC31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +136,87 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD136A1D2217B0E60009F812 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A332217ECE50009F812 /* Test */,
+				DD136A1E2217B0FE0009F812 /* Base */,
+				DD136A252217D9710009F812 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DD136A1E2217B0FE0009F812 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A282217DA6D0009F812 /* Views */,
+				DD136A1F2217B1180009F812 /* BaseViewController.swift */,
+				DD136A212217B1480009F812 /* BaseNavigationController.swift */,
+				DD136A232217B1630009F812 /* BaseTabBarController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DD136A252217D9710009F812 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A262217DA660009F812 /* MainTabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DD136A282217DA6D0009F812 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A292217DA830009F812 /* TabBars */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD136A292217DA830009F812 /* TabBars */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A2A2217DAC80009F812 /* BaseTabBar.swift */,
+				DD136A3C2217F7E50009F812 /* BaseTabBtn.swift */,
+			);
+			path = TabBars;
+			sourceTree = "<group>";
+		};
+		DD136A2C2217E0720009F812 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A2E2217E0720009F812 /* MyThemes.swift */,
+				DD136A2D2217E0720009F812 /* Dark.plist */,
+				DD136A2F2217E0720009F812 /* Normal.plist */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		DD136A332217ECE50009F812 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A342217ED130009F812 /* Test1ViewController.swift */,
+				DD136A362217ED200009F812 /* Test2ViewController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		DD136A382217F6E70009F812 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A392217F6F40009F812 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD136A392217F6F40009F812 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD136A3A2217F7010009F812 /* iconfont.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DD15EF1321E043BC00096E20 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,9 +260,12 @@
 			children = (
 				DDFDF1A721BE60E600B1FC31 /* Headers */,
 				DD15EF1321E043BC00096E20 /* Helpers */,
+				DD136A2C2217E0720009F812 /* Theme */,
 				DDFDF1B021BF8AEF00B1FC31 /* Models */,
 				DDFDF1B321BF8B8D00B1FC31 /* Managers */,
 				DDFDF1B721BF8C1900B1FC31 /* Services */,
+				DD136A1D2217B0E60009F812 /* Modules */,
+				DD136A382217F6E70009F812 /* Resources */,
 				DDFDF17921BE5DA900B1FC31 /* AppDelegate.swift */,
 				DDFDF17B21BE5DA900B1FC31 /* ViewController.swift */,
 				DDFDF17D21BE5DA900B1FC31 /* Main.storyboard */,
@@ -336,8 +444,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD136A322217E0720009F812 /* Normal.plist in Resources */,
 				DDFDF18421BE5DAB00B1FC31 /* LaunchScreen.storyboard in Resources */,
+				DD136A3B2217F7010009F812 /* iconfont.ttf in Resources */,
 				DDFDF18121BE5DAB00B1FC31 /* Assets.xcassets in Resources */,
+				DD136A302217E0720009F812 /* Dark.plist in Resources */,
 				DDFDF17F21BE5DA900B1FC31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,10 +505,11 @@
 				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
-				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/StatefulViewController/StatefulViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
@@ -413,10 +525,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatefulViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
@@ -455,14 +568,23 @@
 			files = (
 				DD15EF1621E0447D00096E20 /* BaseExtensions.swift in Sources */,
 				DDFDF1AE21BF89D000B1FC31 /* CustomConstants.swift in Sources */,
+				DD136A202217B1180009F812 /* BaseViewController.swift in Sources */,
 				DDFDF17C21BE5DA900B1FC31 /* ViewController.swift in Sources */,
 				DDFDF1BF21BFD1C800B1FC31 /* UserService.swift in Sources */,
+				DD136A312217E0720009F812 /* MyThemes.swift in Sources */,
+				DD136A2B2217DAC80009F812 /* BaseTabBar.swift in Sources */,
+				DD136A372217ED200009F812 /* Test2ViewController.swift in Sources */,
 				DDFDF17A21BE5DA900B1FC31 /* AppDelegate.swift in Sources */,
 				DDFDF1BA21BF8D1500B1FC31 /* BaseAPIService.swift in Sources */,
 				DDFDF1BD21BF9E1500B1FC31 /* APIConstants.swift in Sources */,
+				DD136A222217B1480009F812 /* BaseNavigationController.swift in Sources */,
+				DD136A352217ED130009F812 /* Test1ViewController.swift in Sources */,
 				DDFDF1B221BF8B0100B1FC31 /* UserModel.swift in Sources */,
+				DD136A272217DA660009F812 /* MainTabBarController.swift in Sources */,
+				DD136A242217B1630009F812 /* BaseTabBarController.swift in Sources */,
 				DDFDF1AB21BE689B00B1FC31 /* Constants.swift in Sources */,
 				DDFDF1B521BF8BC200B1FC31 /* AccountManager.swift in Sources */,
+				DD136A3D2217F7E50009F812 /* BaseTabBtn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
