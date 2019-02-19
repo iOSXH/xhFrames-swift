@@ -17,15 +17,6 @@ class Test1ViewController: BaseViewController {
         title = "Test1"
         
         
-        for fontfamilyname: String in UIFont.familyNames {
-            print("family:'\(fontfamilyname)'")
-            for fontName: String in UIFont.fontNames(forFamilyName: fontfamilyname) {
-                print("\tfont:'\(fontName)'")
-            }
-            print("-------------")
-        }
-        
-        
         let font = UIFont(name: "iconfont", size: 20)
         
         let lab:UILabel = UILabel(frame: CGRect(x: 110, y: 110, width: 100, height: 100))

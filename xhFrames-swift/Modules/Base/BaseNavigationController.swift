@@ -8,15 +8,61 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
+class BaseNavigationController: UINavigationController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         UINavigationBar.appearance().shadowImage = UIImage()
+        
+        delegate = self
+        interactivePopGestureRecognizer?.delegate = self
+        interactivePopGestureRecognizer?.isEnabled = false
+        
     }
     
+    
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if viewControllers.count > 1 {
+            interactivePopGestureRecognizer?.isEnabled = true
+        }else{
+            interactivePopGestureRecognizer?.isEnabled = false
+        }
+    }
+    
+    override var childForStatusBarStyle: UIViewController?{
+        get {
+            return topViewController
+        }
+    }
+    
+    // MARK: UIViewControllerRotation
+    override var shouldAutorotate: Bool {
+        return topViewController?.shouldAutorotate ?? false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return (topViewController?.supportedInterfaceOrientations)!
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return (topViewController?.preferredInterfaceOrientationForPresentation)!
+    }
+
+    
+    // MARK UIGestureRecognizerDelegate
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        let topVc: UIViewController? = visibleViewController
+        if (topVc is BaseViewController) {
+            if (topVc as? BaseViewController)?.disableSwipBack == true {
+                return false
+            }
+        }
+        return true
+
+    }
 
     /*
     // MARK: - Navigation

@@ -9,19 +9,43 @@
 import UIKit
 import SnapKit
 
-protocol BaseTabBarDelegate {
+protocol BaseTabBarDelegate : NSObjectProtocol {
     func tabBarDidSelectIndex(tabBar:BaseTabBar, index:NSInteger) -> Void
 }
 
 
 class BaseTabBar: UITabBar {
     public
-    var baseDelegate:BaseTabBarDelegate? = nil
+    weak var baseDelegate:BaseTabBarDelegate? = nil
+    
+    var selectedIndex:Int = 0{
+        willSet {
+            
+        }
+        
+        didSet {
+            if selectedIndex == oldValue {
+                return
+            }
+            
+            if selectedIndex < 0 || selectedIndex >= tabBtns.count {
+                return
+            }
+            
+            for i in 0...tabBtns.count-1 {
+                let btn:BaseTabBtn  = tabBtns[i]
+                btn.isSelected = i == selectedIndex
+            }
+            baseDelegate?.tabBarDidSelectIndex(tabBar: self, index: selectedIndex)
+
+        }
+        
+    }
     
     private
     let bgView:UIView = UIView()
     
-    var tabBtns:NSArray = NSArray()
+    var tabBtns:Array<BaseTabBtn> = []
     
     
     
@@ -63,19 +87,15 @@ class BaseTabBar: UITabBar {
 //        let btnHeight:CGFloat = kTabBarNormalHeight
 //        let btnWidth =
         
-        var btnAry:Array<ConstraintView> = []
+        var btnAry:Array<BaseTabBtn> = []
         for index in 0...configs.count-1 {
             let config:Dictionary = configs[index]
-            let imageText:String? = config["imageText"]
-//            let titleText:String? = config["titleText"]
             
             let preView:UIView? = btnAry.last
             
-            let btn:UIButton = UIButton()
-            btn.theme_setTitleColor(ThememColorKey.Global_TXTC.rawValue, forState: .normal)
-            btn.titleLabel?.font = UIFont(name: kFont_Icon, size: 25)
-            btn.setTitle(imageText, for: .normal)
-            btn.setTitle(imageText, for: .selected)
+            let btn:BaseTabBtn = BaseTabBtn()
+            btn.setData(config: config)
+            btn.tag = 10 + index
             btn.addTarget(self, action: #selector(btnDidClicked(sender:)), for: .touchUpInside)
             bgView.addSubview(btn)
             btn.snp.makeConstraints { (make) in
@@ -93,13 +113,25 @@ class BaseTabBar: UITabBar {
             }
             
             btnAry.append(btn)
+            
+            btn.isSelected = index == selectedIndex
         }
+        
+        tabBtns = btnAry
         
     }
     
     
     @objc func btnDidClicked(sender:UIButton) -> Void {
+        let index:Int = sender.tag - 10
         
+        if index == selectedIndex
+        {
+            return
+        }
+        
+        selectedIndex = index
     }
+    
 
 }

@@ -24,7 +24,7 @@ def common_pods
 #日志
     pod 'XCGLogger' 
 #nav 
-    pod 'KMNavigationBarTransition'
+    pod 'KMNavigationBarTransition', :git => 'https://github.com/iOSXH/KMNavigationBarTransition.git'
 #HUD
     pod 'MBProgressHUD'
 #empty

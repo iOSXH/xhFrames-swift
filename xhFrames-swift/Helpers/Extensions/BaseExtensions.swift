@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - 字典扩展
 extension Dictionary{
@@ -143,3 +144,11 @@ extension String{
 //    }
     
 }
+
+
+// MARK: - 字典扩展
+extension UIImage {
+    
+}
+
+
