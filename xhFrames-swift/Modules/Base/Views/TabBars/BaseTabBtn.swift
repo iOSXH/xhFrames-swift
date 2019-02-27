@@ -52,11 +52,11 @@ class BaseTabBtn: UIButton {
         
         didSet {
             if isSelected {
-                imageLab.theme_textColor = ThememColorKey.Global_TXTC.rawValue
-                titleLab.theme_textColor = ThememColorKey.Global_TXTC.rawValue
+                imageLab.theme_textColor = ThemeColorKey.Global_TXTC.rawValue
+                titleLab.theme_textColor = ThemeColorKey.Global_TXTC.rawValue
             }else{
-                imageLab.theme_textColor = ThememColorKey.Global_GrayC.rawValue
-                titleLab.theme_textColor = ThememColorKey.Global_GrayC.rawValue
+                imageLab.theme_textColor = ThemeColorKey.Global_GrayC.rawValue
+                titleLab.theme_textColor = ThemeColorKey.Global_GrayC.rawValue
             }
         }
         

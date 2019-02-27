@@ -65,19 +65,21 @@ class BaseTabBar: UITabBar {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        bgView.frame = self.bounds;
+//        bgView.frame = self.bounds;
         self.bringSubviewToFront(bgView)
     }
     
     
     func initSubViews() {
-        bgView.theme_backgroundColor = ThememColorKey.Global_BGC.rawValue
+        bgView.theme_backgroundColor = ThemeColorKey.Global_BGC.rawValue
         self.addSubview(bgView)
-        
+        bgView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
         let configs:Array = [
             ["imageText":"\u{eb8e}","titleText":"账号"],
+            ["imageText":"\u{ec90}","titleText":"列表"],
             ["imageText":"\u{eb90}","titleText":"设置"]
         ]
         

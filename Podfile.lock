@@ -13,6 +13,23 @@ PODS:
   - SnapKit (4.2.0)
   - SSZipArchive (2.1.4)
   - StatefulViewController (3.0)
+  - SwifterSwift (4.6.0):
+    - SwifterSwift/AppKit (= 4.6.0)
+    - SwifterSwift/CoreGraphics (= 4.6.0)
+    - SwifterSwift/CoreLocation (= 4.6.0)
+    - SwifterSwift/Foundation (= 4.6.0)
+    - SwifterSwift/MapKit (= 4.6.0)
+    - SwifterSwift/SpriteKit (= 4.6.0)
+    - SwifterSwift/SwiftStdlib (= 4.6.0)
+    - SwifterSwift/UIKit (= 4.6.0)
+  - SwifterSwift/AppKit (4.6.0)
+  - SwifterSwift/CoreGraphics (4.6.0)
+  - SwifterSwift/CoreLocation (4.6.0)
+  - SwifterSwift/Foundation (4.6.0)
+  - SwifterSwift/MapKit (4.6.0)
+  - SwifterSwift/SpriteKit (4.6.0)
+  - SwifterSwift/SwiftStdlib (4.6.0)
+  - SwifterSwift/UIKit (4.6.0)
   - SwiftTheme (0.4.3)
   - SwiftyJSON (4.2.0)
   - XCGLogger (6.1.0):
@@ -24,7 +41,7 @@ DEPENDENCIES:
   - Alamofire
   - Hue
   - Kingfisher
-  - KMNavigationBarTransition
+  - KMNavigationBarTransition (from `https://github.com/iOSXH/KMNavigationBarTransition.git`)
   - lottie-ios
   - MBProgressHUD
   - MJRefresh
@@ -32,6 +49,7 @@ DEPENDENCIES:
   - SnapKit
   - SSZipArchive
   - StatefulViewController
+  - SwifterSwift
   - SwiftTheme
   - SwiftyJSON
   - XCGLogger
@@ -41,7 +59,6 @@ SPEC REPOS:
     - Alamofire
     - Hue
     - Kingfisher
-    - KMNavigationBarTransition
     - lottie-ios
     - MBProgressHUD
     - MJRefresh
@@ -50,9 +67,19 @@ SPEC REPOS:
     - SnapKit
     - SSZipArchive
     - StatefulViewController
+    - SwifterSwift
     - SwiftTheme
     - SwiftyJSON
     - XCGLogger
+
+EXTERNAL SOURCES:
+  KMNavigationBarTransition:
+    :git: https://github.com/iOSXH/KMNavigationBarTransition.git
+
+CHECKOUT OPTIONS:
+  KMNavigationBarTransition:
+    :commit: 858074a49adedc30e8a9c9ca1b402234680b4bd3
+    :git: https://github.com/iOSXH/KMNavigationBarTransition.git
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -67,10 +94,11 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SSZipArchive: 41455d4b8d2b6ab93990820b50dc697c2554a322
   StatefulViewController: 4803bf900d44de26074344998e10e041113b5931
+  SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
   SwiftTheme: 628345b948068a48d330d76dffb1a990ea5f90aa
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: f631a797c9281b8effec82926b7c0449799a980a
+PODFILE CHECKSUM: f98e660d1a58bbf544ab3de4fcb2817f9b083b3d
 
 COCOAPODS: 1.5.3

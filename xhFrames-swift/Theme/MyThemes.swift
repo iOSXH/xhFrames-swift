@@ -33,24 +33,24 @@ enum MyThemes: Int {
         UIApplication.shared.theme_setStatusBarStyle(statusBarPick, animated: true)
         
         // navigation bar
-        let navigationBar = UINavigationBar.appearance()
-        navigationBar.theme_tintColor = "Global.barTextColor"
-        navigationBar.theme_barTintColor = "Global.barTintColor"
-        navigationBar.theme_titleTextAttributes = ThemeDictionaryPicker(keyPath: "Global.barTextColor") { value -> [NSAttributedString.Key : AnyObject]? in
-            guard let rgba = value as? String else {
-                return nil
-            }
-            
-            let color = UIColor(rgba: rgba)
-            let shadow = NSShadow(); shadow.shadowOffset = CGSize.zero
-            let titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: color,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
-                NSAttributedString.Key.shadow: shadow
-            ]
-            
-            return titleTextAttributes
-        }
+//        let navigationBar = UINavigationBar.appearance()
+//        navigationBar.theme_tintColor = "Global.barTextColor"
+//        navigationBar.theme_barTintColor = "Global.barTintColor"
+//        navigationBar.theme_titleTextAttributes = ThemeDictionaryPicker(keyPath: "Global.barTextColor") { value -> [NSAttributedString.Key : AnyObject]? in
+//            guard let rgba = value as? String else {
+//                return nil
+//            }
+//            
+//            let color = UIColor(rgba: rgba)
+//            let shadow = NSShadow(); shadow.shadowOffset = CGSize.zero
+//            let titleTextAttributes = [
+//                NSAttributedString.Key.foregroundColor: color,
+//                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+//                NSAttributedString.Key.shadow: shadow
+//            ]
+//            
+//            return titleTextAttributes
+//        }
         
         
         // tab bar
@@ -140,16 +140,65 @@ enum MyThemes: Int {
 
 
 
-enum ThememColorKey: ThemeColorPicker {
+enum ThemeColorKey: ThemeColorPicker {
+    
+    case Nav_BGC     = "NavigationBar.barTintColor"
+    case Nav_TitleC     = "NavigationBar.titleTextColor"
+    
+    
     ///
     case Global_BGC     = "Global.backgroundColor"
     case Global_GrayC     = "Global.grayColor"
+    case Global_RedC     = "Global.redColor"
     
     
     case Global_TXTC    = "Global.textColor"
 }
 
-enum ThememImageKey: ThemeImagePicker {
+enum ThemeImageKey: ThemeImagePicker {
     ///
     case Global_Img     = "Global.image"
 }
+
+
+enum ThemeTitleKey: String {
+    ///
+    case normal   = "NavigationBar.titleTextColor"
+    case other    = "Global.textColor"
+}
+
+
+func NavTitleTheme(_ key: ThemeTitleKey) -> ThemeDictionaryPicker {
+    return ThemeDictionaryPicker(keyPath: key.rawValue) { value -> [NSAttributedString.Key : AnyObject]? in
+        guard let rgba = value as? String else {
+            return nil
+        }
+        
+        let color = UIColor(rgba: rgba)
+        let titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: color,
+            NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20)
+        ]
+        
+        return titleTextAttributes
+    }
+}
+
+
+func NavBarItemTheme(_ key: ThemeTitleKey) -> ThemeDictionaryPicker {
+    return ThemeDictionaryPicker(keyPath: key.rawValue) { value -> [NSAttributedString.Key : AnyObject]? in
+        guard let rgba = value as? String else {
+            return nil
+        }
+        
+        let color = UIColor(rgba: rgba)
+        let titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: color,
+            NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16)
+        ]
+        
+        return titleTextAttributes
+    }
+}
+
+

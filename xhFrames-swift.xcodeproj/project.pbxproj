@@ -21,6 +21,11 @@
 		DD136A3B2217F7010009F812 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD136A3A2217F7010009F812 /* iconfont.ttf */; };
 		DD136A3D2217F7E50009F812 /* BaseTabBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A3C2217F7E50009F812 /* BaseTabBtn.swift */; };
 		DD15EF1621E0447D00096E20 /* BaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15EF1521E0447D00096E20 /* BaseExtensions.swift */; };
+		DDAEAC4422253E2200418D6B /* BaseListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC4322253E2200418D6B /* BaseListProtocol.swift */; };
+		DDAEAC4622253E4600418D6B /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC4522253E4600418D6B /* BaseListViewController.swift */; };
+		DDAEAC4A222630A200418D6B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC49222630A200418D6B /* BaseTableViewCell.swift */; };
+		DDAEAC4C222630CE00418D6B /* BaseCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC4B222630CE00418D6B /* BaseCellProtocol.swift */; };
+		DDAEAC4E2226928F00418D6B /* TestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC4D2226928F00418D6B /* TestListViewController.swift */; };
 		DDFDF17A21BE5DA900B1FC31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF17921BE5DA900B1FC31 /* AppDelegate.swift */; };
 		DDFDF17C21BE5DA900B1FC31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDF17B21BE5DA900B1FC31 /* ViewController.swift */; };
 		DDFDF17F21BE5DA900B1FC31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFDF17D21BE5DA900B1FC31 /* Main.storyboard */; };
@@ -71,6 +76,11 @@
 		DD136A3A2217F7010009F812 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		DD136A3C2217F7E50009F812 /* BaseTabBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBtn.swift; sourceTree = "<group>"; };
 		DD15EF1521E0447D00096E20 /* BaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseExtensions.swift; sourceTree = "<group>"; };
+		DDAEAC4322253E2200418D6B /* BaseListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListProtocol.swift; sourceTree = "<group>"; };
+		DDAEAC4522253E4600418D6B /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
+		DDAEAC49222630A200418D6B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		DDAEAC4B222630CE00418D6B /* BaseCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCellProtocol.swift; sourceTree = "<group>"; };
+		DDAEAC4D2226928F00418D6B /* TestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestListViewController.swift; sourceTree = "<group>"; };
 		DDFDF17621BE5DA900B1FC31 /* xhFrames-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xhFrames-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFDF17921BE5DA900B1FC31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDFDF17B21BE5DA900B1FC31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				DD136A332217ECE50009F812 /* Test */,
+				DDAEAC4122253D9300418D6B /* User */,
 				DD136A1E2217B0FE0009F812 /* Base */,
 				DD136A252217D9710009F812 /* Main */,
 			);
@@ -149,6 +160,7 @@
 		DD136A1E2217B0FE0009F812 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				DDAEAC472226305F00418D6B /* List */,
 				DD136A282217DA6D0009F812 /* Views */,
 				DD136A1F2217B1180009F812 /* BaseViewController.swift */,
 				DD136A212217B1480009F812 /* BaseNavigationController.swift */,
@@ -197,6 +209,7 @@
 			children = (
 				DD136A342217ED130009F812 /* Test1ViewController.swift */,
 				DD136A362217ED200009F812 /* Test2ViewController.swift */,
+				DDAEAC4D2226928F00418D6B /* TestListViewController.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -231,6 +244,40 @@
 				DD15EF1521E0447D00096E20 /* BaseExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DDAEAC4122253D9300418D6B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				DDAEAC4222253DA100418D6B /* Views */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		DDAEAC4222253DA100418D6B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DDAEAC472226305F00418D6B /* List */ = {
+			isa = PBXGroup;
+			children = (
+				DDAEAC482226307000418D6B /* Views */,
+				DDAEAC4322253E2200418D6B /* BaseListProtocol.swift */,
+				DDAEAC4522253E4600418D6B /* BaseListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		DDAEAC482226307000418D6B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DDAEAC4B222630CE00418D6B /* BaseCellProtocol.swift */,
+				DDAEAC49222630A200418D6B /* BaseTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DDFDF16D21BE5DA900B1FC31 = {
@@ -513,6 +560,7 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/StatefulViewController/StatefulViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
@@ -533,6 +581,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatefulViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
@@ -568,6 +617,7 @@
 			files = (
 				DD15EF1621E0447D00096E20 /* BaseExtensions.swift in Sources */,
 				DDFDF1AE21BF89D000B1FC31 /* CustomConstants.swift in Sources */,
+				DDAEAC4E2226928F00418D6B /* TestListViewController.swift in Sources */,
 				DD136A202217B1180009F812 /* BaseViewController.swift in Sources */,
 				DDFDF17C21BE5DA900B1FC31 /* ViewController.swift in Sources */,
 				DDFDF1BF21BFD1C800B1FC31 /* UserService.swift in Sources */,
@@ -576,11 +626,15 @@
 				DD136A372217ED200009F812 /* Test2ViewController.swift in Sources */,
 				DDFDF17A21BE5DA900B1FC31 /* AppDelegate.swift in Sources */,
 				DDFDF1BA21BF8D1500B1FC31 /* BaseAPIService.swift in Sources */,
+				DDAEAC4622253E4600418D6B /* BaseListViewController.swift in Sources */,
+				DDAEAC4422253E2200418D6B /* BaseListProtocol.swift in Sources */,
 				DDFDF1BD21BF9E1500B1FC31 /* APIConstants.swift in Sources */,
 				DD136A222217B1480009F812 /* BaseNavigationController.swift in Sources */,
 				DD136A352217ED130009F812 /* Test1ViewController.swift in Sources */,
 				DDFDF1B221BF8B0100B1FC31 /* UserModel.swift in Sources */,
+				DDAEAC4A222630A200418D6B /* BaseTableViewCell.swift in Sources */,
 				DD136A272217DA660009F812 /* MainTabBarController.swift in Sources */,
+				DDAEAC4C222630CE00418D6B /* BaseCellProtocol.swift in Sources */,
 				DD136A242217B1630009F812 /* BaseTabBarController.swift in Sources */,
 				DDFDF1AB21BE689B00B1FC31 /* Constants.swift in Sources */,
 				DDFDF1B521BF8BC200B1FC31 /* AccountManager.swift in Sources */,

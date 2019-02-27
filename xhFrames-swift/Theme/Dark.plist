@@ -16,6 +16,8 @@
 		<string>#01040D</string>
 		<key>grayColor</key>
 		<string>#F6F6F6</string>
+		<key>redColor</key>
+		<string>#DC143C</string>
 	</dict>
 	<key>ListViewController</key>
 	<dict>
@@ -39,6 +41,15 @@
 		<key>buttonTitleColorHighlighted</key>
 		<string>#AAA</string>
 		<key>buttonBackgroundColor</key>
+		<string>#ECF0F1</string>
+	</dict>
+	<key>NavigationBar</key>
+	<dict>
+		<key>barTintColor</key>
+		<string>#01040D</string>
+		<key>tintColor</key>
+		<string>#AAA</string>
+		<key>titleTextColor</key>
 		<string>#ECF0F1</string>
 	</dict>
 </dict>

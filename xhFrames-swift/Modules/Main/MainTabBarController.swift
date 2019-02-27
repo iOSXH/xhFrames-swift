@@ -23,7 +23,12 @@ class MainTabBarController: BaseTabBarController {
         let test2Nav = BaseNavigationController(rootViewController: test2Vc)
         test2Vc.tabBarItem.title = ""
         
-        viewControllers = [test1Nav, test2Nav]
+        
+        let testLVc = TestListViewController()
+        let testLNav = BaseNavigationController(rootViewController: testLVc)
+        testLVc.tabBarItem.title = ""
+        
+        viewControllers = [test1Nav, testLNav, test2Nav]
     }
     
 

@@ -16,7 +16,9 @@ def common_pods
 #图片缓存框架
     pod 'Kingfisher'  
 #hex颜色
-    pod 'Hue'               
+    pod 'Hue'
+#扩展extensions
+    pod 'SwifterSwift'
 #主题
     pod 'SwiftTheme'
 #压缩
@@ -31,6 +33,8 @@ def common_pods
     pod 'StatefulViewController'
 #SegmentedView
 #    pod 'JXSegmentedView'
+#界面转场动画
+    pod 'Hero'
 
     pod 'lottie-ios'
     pod 'MJRefresh'

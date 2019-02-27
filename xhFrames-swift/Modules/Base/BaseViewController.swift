@@ -8,6 +8,7 @@
 
 import UIKit
 import KMNavigationBarTransition
+import Kingfisher
 
 class BaseViewController: UIViewController {
     
@@ -21,7 +22,7 @@ class BaseViewController: UIViewController {
     var viewFirstAppearBlock: (() -> Void)? = nil
     
     /// 导航栏背景色 nil时透明
-    var navBgThemeColorKey:ThememColorKey? = ThememColorKey.Global_BGC{
+    var navBgThemeColorKey:ThemeColorKey?{
         didSet{
             if oldValue == navBgThemeColorKey{
                 return
@@ -31,23 +32,48 @@ class BaseViewController: UIViewController {
                 return
             }
             
-            if navBgThemeColorKey != nil {
-//                let img:UIImage = UIImage.i
-                
-            }else{
+            navigationController?.navigationBar.theme_barTintColor = navBgThemeColorKey?.rawValue
+            if navBgThemeColorKey == nil {
+                navigationController?.navigationBar.theme_barTintColor = nil;
+//                navigationController?.navigationBar.barTintColor = UIColor.clear;
                 navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            }else{
+                navigationController?.navigationBar.theme_barTintColor = navBgThemeColorKey?.rawValue
             }
             
         }
     }
     
+    /// 导航栏标题色 nil时透明
+    var navTitleThemeColorKey:ThemeTitleKey?{
+        didSet{
+            if oldValue == navTitleThemeColorKey{
+                return
+            }
+            
+            if navigationController == nil {
+                return
+            }
+            navigationController?.navigationBar.theme_titleTextAttributes = NavTitleTheme(navTitleThemeColorKey!)
+        }
+    }
+    
+    deinit {
+        log.info("\(NSStringFromClass(type(of: self).self)) 已销毁")
+    }
 
     // MARK:- 生命周期_lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.theme_backgroundColor = ThememColorKey.Global_GrayC.rawValue
+        view.theme_backgroundColor = ThemeColorKey.Global_GrayC.rawValue
+        navBgThemeColorKey = ThemeColorKey.Global_BGC
+        navTitleThemeColorKey = ThemeTitleKey.normal
+        
+        if (navigationController?.viewControllers.count ?? 0) > 1 {
+            addLeftBarItem(title: "", imageName: "icon_nav_back")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,11 +113,11 @@ class BaseViewController: UIViewController {
         
     }
     /// 导航栏左边按钮点击事件  子类继承  默认pop
-    func leftItemDidClicked(sender:Any) -> Void {
-        
+    @objc func leftItemDidClicked(sender:Any) -> Void {
+        navigationController?.popViewController(animated: true)
     }
     /// 导航栏右边按钮点击事件  子类继承
-    func rightItemDidClicked(sender:Any) -> Void {
+    @objc func rightItemDidClicked(sender:Any) -> Void {
         
     }
     
@@ -113,6 +139,30 @@ class BaseViewController: UIViewController {
     ///   - imageName: 图片名
     ///   - isLeft: 左右
     private func addBarItem(title: String, imageName: String, isLeft: Bool) -> Void {
+        let action: Selector = isLeft ? (#selector(leftItemDidClicked(sender:))) : (#selector(rightItemDidClicked(sender:)))
+        
+        var barItem:UIBarButtonItem? = nil
+        if !kEmptyString(title) {
+            barItem = UIBarButtonItem.init(title: title, style: .plain, target: self, action: action)
+            barItem?.theme_setTitleTextAttributes(NavBarItemTheme(.normal), forState: .normal)
+            barItem?.theme_setTitleTextAttributes(NavBarItemTheme(.normal), forState: .highlighted)
+        }else if (!kEmptyString(imageName)){
+            let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+            if imageName.hasPrefix("http") || imageName.hasPrefix("https") {
+                btn.kf.setImage(with: URL(string: imageName), for: .normal)
+            } else {
+                btn.setImage(kImageNamed(imageName), for: .normal)
+            }
+            btn.imageEdgeInsets = isLeft ? UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0) : UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -20)
+            btn.addTarget(self, action: action, for: .touchUpInside)
+            barItem = UIBarButtonItem(customView: btn)
+        }
+        
+        if isLeft {
+            navigationItem.leftBarButtonItem = barItem
+        }else {
+            navigationItem.rightBarButtonItem = barItem
+        }
         
     }
     

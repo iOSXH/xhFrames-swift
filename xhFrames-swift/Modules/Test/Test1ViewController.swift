@@ -16,14 +16,14 @@ class Test1ViewController: BaseViewController {
         // Do any additional setup after loading the view.
         title = "Test1"
         
-        
-        let font = UIFont(name: "iconfont", size: 20)
-        
-        let lab:UILabel = UILabel(frame: CGRect(x: 110, y: 110, width: 100, height: 100))
-        lab.font = font
-        lab.text = "\u{eb8e}"
-        view.addSubview(lab)
-        
-
+        addLeftBarItem(title: "test1", imageName: "")
     }
+    
+    override func leftItemDidClicked(sender: Any) {
+        let test2:Test2ViewController = Test2ViewController()
+        test2.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(test2, animated: true)
+    }
+    
 }
+
