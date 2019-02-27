@@ -63,6 +63,11 @@ class BaseNavigationController: UINavigationController, UINavigationControllerDe
         return true
 
     }
+    
+    
+    deinit {
+        log.info("\(NSStringFromClass(type(of: self).self)) 已销毁")
+    }
 
     /*
     // MARK: - Navigation

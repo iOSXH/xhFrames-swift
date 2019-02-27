@@ -11,7 +11,7 @@ import UIKit
 class BaseTableViewCell: UITableViewCell, BaseTableCellProtocol {
     
     // MARK: UITableViewCell协议
-    var baseDelegate: BaseCellDelegate?
+    weak var baseDelegate: BaseCellDelegate?
     
     var indexPath: IndexPath?
     
@@ -62,4 +62,7 @@ class BaseTableViewCell: UITableViewCell, BaseTableCellProtocol {
         // Configure the view for the selected state
     }
 
+    deinit {
+        log.info("\(NSStringFromClass(type(of: self).self)) 已销毁")
+    }
 }

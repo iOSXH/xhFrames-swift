@@ -19,13 +19,21 @@ class TestListViewController: BaseListViewController {
         title = "列表"
         
         setupRefresh()
-        
+
         startRefresh(true)
+        
+        addRightBarItem(title: "test1", imageName: "")
+    }
+    
+    override func rightItemDidClicked(sender: Any) {
+        let test2:TestListViewController = TestListViewController()
+        test2.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(test2, animated: true)
     }
     
     override func refresh(offset: String?, limit: Int, success: successBlock?, failure: failureBlock?) {
         let datas:[String] = ["asfasfasdf"]
-        
+
         if success != nil {
             success!(datas, nil)
         }
@@ -34,8 +42,8 @@ class TestListViewController: BaseListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
-        
-        
+
+
         let test2:TestListViewController = TestListViewController()
         test2.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(test2, animated: true)

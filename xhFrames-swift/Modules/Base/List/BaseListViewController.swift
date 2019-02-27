@@ -25,7 +25,7 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     // MARK: - 协议BaseListProtocol
     var listType: ListType = .none
     
-    var cellClass: AnyClass = BaseTableViewCell.self
+    var cellClass: BaseCellProtocol.Type = BaseTableViewCell.self
     
     var headerType: HeaderRefreshType = .none
     
@@ -75,26 +75,23 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
         refreshing = true
         error = nil
         reloadEmptyData()
-        weak var weakSelf = self
         refresh(offset: offset, limit: limit, success: {(rDatas:[Any]?, rOffset:String?) in
-            if weakSelf?.offset != nil || weakSelf?.removeAllDatas == true {
-                weakSelf?.datas.removeAll()
-                weakSelf?.removeAllDatas = false
+            if self.offset != nil || self.removeAllDatas == true {
+                self.datas.removeAll()
+                self.removeAllDatas = false
             }
             if rDatas != nil && rDatas!.count > 0 {
-                weakSelf?.datas.append(contentsOf: rDatas!)
+                self.datas.append(contentsOf: rDatas!)
             }
             
-            let hasMore: Bool = weakSelf?.offset != nil && weakSelf?.offset != "-1"
+            let hasMore: Bool = self.offset != nil && self.offset != "-1"
             if hasMore {
                 //nextId = nextId    // Skipping redundant initializing to itself
             }
-//            weakSelf?.endRefresh(nil, hasMore)
-            if weakSelf?.listType == .table {
-                weakSelf?.tableView?.reloadData()
-            }
+            self.endRefresh(nil, hasMore)
+            
         }) {(rError:Error?, rData:Any?) in
-//            weakSelf?.endRefresh(rError, true)
+            self.endRefresh(rError, true)
         }
     }
     
@@ -114,11 +111,6 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     private func reloadEmptyData() {
         
     }
-    
-    
-    deinit {
-        
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,12 +128,11 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
             tableView?.delegate = self
             tableView?.dataSource = self
             view.addSubview(tableView!)
-            weak var weakSelf = self
             tableView?.snp.makeConstraints({ (make) in
-                make.edges.equalToSuperview().inset(weakSelf?.contentInsets ?? UIEdgeInsets.zero)
+                make.edges.equalToSuperview().inset(contentInsets)
             })
             
-            tableView?.register(cellClass, forCellReuseIdentifier: (cellClass as! BaseCellProtocol.Type).cellReuseIdentifier())
+            tableView?.register(cellClass, forCellReuseIdentifier: cellClass.cellReuseIdentifier())
             let cellHeight = (cellClass as! BaseTableCellProtocol.Type).cellHeight()
             if cellHeight > 0 {
                 tableView?.rowHeight = cellHeight
@@ -173,7 +164,7 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:BaseTableViewCell = tableView.dequeueReusableCell(withIdentifier: (cellClass as! BaseCellProtocol.Type).cellReuseIdentifier()) as! BaseTableViewCell
+        let cell:BaseTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellClass.cellReuseIdentifier()) as! BaseTableViewCell
         cell.indexPath = indexPath
         cell.baseDelegate = self
         cell.updateViews(datas[indexPath.row])

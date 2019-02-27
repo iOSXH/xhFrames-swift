@@ -44,7 +44,7 @@ protocol BaseListProtocol: NSObjectProtocol {
     /// 列表类型
     var listType:ListType {get set}
     /// cell类
-    var cellClass:AnyClass {get set}
+    var cellClass:BaseCellProtocol.Type {get set}
     /// 下拉刷新类型
     var headerType:HeaderRefreshType {get set}
     /// 上拉刷新类型
