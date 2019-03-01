@@ -10,7 +10,7 @@ import UIKit
 import MJRefresh
 import StatefulViewController
 
-class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDelegate, UITableViewDelegate, UITableViewDataSource, StatefulViewController {
+class BaseListViewController: BaseViewController, StatefulViewController, BaseListProtocol, BaseCellDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource  {
     
     // MARK: - 公有变量/方法Public
     /// 内边距
@@ -18,9 +18,10 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     var contentListView: UIScrollView?
     
     var tableViewStyle: UITableView.Style = UITableView.Style.plain
-    
     var tableView: UITableView?
 
+    var collectionLayout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    var collectionView:UICollectionView?
     
     // MARK: - 私有变量/方法Private
     private var refreshed:Bool = false
@@ -127,7 +128,7 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
         if listType == .table {
             tableView?.reloadData()
         }else if listType == .collection {
-            
+            collectionView?.reloadData()
         }
         
         if headerType == .normal {
@@ -178,7 +179,8 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
             tableView = UITableView(frame: view.bounds, style: tableViewStyle)
             tableView?.backgroundColor = UIColor.clear
             tableView?.tableFooterView = UIView()
-            tableView?.separatorStyle = .none
+//            tableView?.separatorStyle = .singleLine
+            tableView?.theme_separatorColor = ThemeColorKey.Global_GrayC.rawValue
             tableView?.delegate = self
             tableView?.dataSource = self
             view.addSubview(tableView!)
@@ -197,6 +199,30 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
             }
             
             contentListView = tableView
+        }else if listType == .collection {
+            let a = cellClass is BaseCollectionCellProtocol.Type
+            if !a {
+                cellClass = BaseCollectionViewCell.self
+            }
+            
+            collectionLayout.sectionInset = (cellClass as! BaseCollectionCellProtocol.Type).collectionInsets()
+            collectionLayout.itemSize = (cellClass as! BaseCollectionCellProtocol.Type).itemSize()
+            collectionLayout.minimumLineSpacing = (cellClass as! BaseCollectionCellProtocol.Type).itemMinLineSpacing()
+            collectionLayout.minimumInteritemSpacing = (cellClass as! BaseCollectionCellProtocol.Type).itemMinInterSpacing()
+            collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: collectionLayout)
+            collectionView?.delegate = self
+            collectionView?.dataSource = self
+            collectionView?.backgroundColor = UIColor.clear
+            collectionView?.alwaysBounceVertical = true
+            view.addSubview(collectionView!)
+            collectionView?.snp.makeConstraints({ (make) in
+                make.edges.equalToSuperview().inset(contentInsets)
+            })
+            
+            collectionView?.register(cellClass, forCellWithReuseIdentifier: cellClass.cellReuseIdentifier())
+            
+            
+            contentListView = collectionView
         }
     }
     
@@ -230,9 +256,26 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // MARK: - 代理
-    // MARK: - 代理
+    // MARK: - 代理UICollectionViewDataSource
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return datas.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell:BaseCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellClass.cellReuseIdentifier(), for: indexPath) as! BaseCollectionViewCell
+        cell.indexPath = indexPath
+        cell.baseDelegate = self
+        cell.updateViews(datas[indexPath.row])
+        
+        return cell
+    }
     
+    // MARK: - 代理UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
 
     /*
     // MARK: - Navigation

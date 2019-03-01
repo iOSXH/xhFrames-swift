@@ -1,15 +1,14 @@
 //
-//  BaseTableViewCell.swift
+//  BaseCollectionViewCell.swift
 //  xhFrames-swift
 //
-//  Created by hui xiang on 2019/2/27.
+//  Created by hui xiang on 2019/3/1.
 //  Copyright © 2019 xianghui. All rights reserved.
 //
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell, BaseTableCellProtocol {
-    
+class BaseCollectionViewCell: UICollectionViewCell, BaseCollectionCellProtocol {
     // MARK: UITableViewCell协议
     weak var baseDelegate: BaseCellDelegate?
     
@@ -18,20 +17,16 @@ class BaseTableViewCell: UITableViewCell, BaseTableCellProtocol {
     var colorViews: [UIView] = []
     
     func initSubViews() {
-        
-        selectionStyle = .default;
         theme_backgroundColor = ThemeColorKey.Global_BGC.rawValue
         contentView.theme_backgroundColor = ThemeColorKey.Global_BGC.rawValue
         
         selectedBackgroundView = UIView();
         selectedBackgroundView?.theme_backgroundColor = ThemeColorKey.Global_GrayC.rawValue
         
-        
-        textLabel?.theme_textColor = ThemeColorKey.Global_TXTC.rawValue
     }
     
     func updateViews(_ model: Any?) {
-        textLabel?.text = kGetString(model)
+        
     }
     
     static func cellReuseIdentifier() -> String {
@@ -39,17 +34,25 @@ class BaseTableViewCell: UITableViewCell, BaseTableCellProtocol {
         return cellId
     }
     
-    static func cellHeight() -> CGFloat {
-        return 44.0
+    static func collectionInsets() -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
-    static func estimatedCellHeight() -> CGFloat {
-        return 0
+    static func itemSize() -> CGSize {
+        return CGSize(width: 100, height: 100)
+    }
+    
+    static func itemMinLineSpacing() -> CGFloat {
+        return 10
+    }
+    
+    static func itemMinInterSpacing() -> CGFloat {
+        return 10
     }
     
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         initSubViews()
     }
@@ -58,20 +61,5 @@ class BaseTableViewCell: UITableViewCell, BaseTableCellProtocol {
         super.init(coder: aDecoder)
         
         initSubViews()
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-    deinit {
-        log.info("\(NSStringFromClass(type(of: self).self)) 已销毁")
     }
 }

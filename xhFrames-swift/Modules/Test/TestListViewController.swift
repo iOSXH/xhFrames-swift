@@ -10,14 +10,20 @@ import UIKit
 
 class TestListViewController: BaseListViewController {
     
+    var type:Int = 0
 
     override func viewDidLoad() {
-        listType = .table
+        
+        listType = type == 0 ? .table : .collection
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = "列表"
-        addRightBarItem(title: "test1", imageName: "")
+    
+        if type == 0 {
+            addRightBarItem(title: "test1", imageName: "")
+        }
         
         setupRefresh()
 
@@ -33,6 +39,7 @@ class TestListViewController: BaseListViewController {
     
     override func rightItemDidClicked(sender: Any) {
         let test2:TestListViewController = TestListViewController()
+        test2.type = 1
         test2.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(test2, animated: true)
     }
@@ -40,7 +47,7 @@ class TestListViewController: BaseListViewController {
     override func refresh(offset: String?, limit: Int, success: successBlock?, failure: failureBlock?) {
         
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(1 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
             
             let a = Int.random(between: 0, and: 1)
             
@@ -50,7 +57,7 @@ class TestListViewController: BaseListViewController {
                 }
             }else {
                 if success != nil {
-                    let datas:[String] = ["asfasfasdf"]
+                    let datas:[String] = ["11111111","2222222","3333333","44444444","5555555"]
                     success!(datas, nil)
                 }
             }
