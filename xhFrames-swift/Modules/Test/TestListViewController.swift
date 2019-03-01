@@ -17,12 +17,18 @@ class TestListViewController: BaseListViewController {
 
         // Do any additional setup after loading the view.
         title = "列表"
+        addRightBarItem(title: "test1", imageName: "")
         
         setupRefresh()
 
-        startRefresh(true)
         
-        addRightBarItem(title: "test1", imageName: "")
+        startRefresh(true)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func rightItemDidClicked(sender: Any) {
@@ -32,11 +38,24 @@ class TestListViewController: BaseListViewController {
     }
     
     override func refresh(offset: String?, limit: Int, success: successBlock?, failure: failureBlock?) {
-        let datas:[String] = ["asfasfasdf"]
+        
 
-        if success != nil {
-            success!(datas, nil)
-        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
+            
+            let a = Int.random(between: 0, and: 1)
+            
+            if a == 0 {
+                if failure != nil {
+                    failure!(NSError(), nil)
+                }
+            }else {
+                if success != nil {
+                    let datas:[String] = ["asfasfasdf"]
+                    success!(datas, nil)
+                }
+            }
+        })
+        
     }
     
     

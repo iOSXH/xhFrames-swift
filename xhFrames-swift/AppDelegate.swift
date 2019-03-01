@@ -81,12 +81,12 @@ let log: XCGLogger = {
     
     
     let emojiLogFormatter = PrePostFixLogFormatter()
-    emojiLogFormatter.apply(prefix: "①verbose🗯:\n", postfix: "\n🗯", to: .verbose)
-    emojiLogFormatter.apply(prefix: "②debug🔹:\n", postfix: "\n🔹", to: .debug)
-    emojiLogFormatter.apply(prefix: "③infoℹ️:\n", postfix: "\nℹ️", to: .info)
-    emojiLogFormatter.apply(prefix: "④warning⚠️:\n", postfix: "\n⚠️", to: .warning)
-    emojiLogFormatter.apply(prefix: "⑤error‼️:\n", postfix: "\n‼️", to: .error)
-    emojiLogFormatter.apply(prefix: "⑥severe💣:\n", postfix: "\n💣", to: .severe)
+    emojiLogFormatter.apply(prefix: "①verbose🗯:\n", postfix: "", to: .verbose)
+    emojiLogFormatter.apply(prefix: "②debug🔹:\n", postfix: "", to: .debug)
+    emojiLogFormatter.apply(prefix: "③infoℹ️:\n", postfix: "", to: .info)
+    emojiLogFormatter.apply(prefix: "④warning⚠️:\n", postfix: "", to: .warning)
+    emojiLogFormatter.apply(prefix: "⑤error‼️:\n", postfix: "", to: .error)
+    emojiLogFormatter.apply(prefix: "⑥severe💣:\n", postfix: "", to: .severe)
     log.formatters = [emojiLogFormatter]
     
     if let fileDestination: FileDestination = log.destination(withIdentifier: XCGLogger.Constants.fileDestinationIdentifier) as? FileDestination {

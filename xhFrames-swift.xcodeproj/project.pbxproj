@@ -21,6 +21,14 @@
 		DD136A3B2217F7010009F812 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD136A3A2217F7010009F812 /* iconfont.ttf */; };
 		DD136A3D2217F7E50009F812 /* BaseTabBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD136A3C2217F7E50009F812 /* BaseTabBtn.swift */; };
 		DD15EF1621E0447D00096E20 /* BaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15EF1521E0447D00096E20 /* BaseExtensions.swift */; };
+		DD7352712228D82D0083B019 /* BaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7352702228D82C0083B019 /* BaseRefreshHeader.swift */; };
+		DD7352772228D8780083B019 /* refresh_white.json in Resources */ = {isa = PBXBuildFile; fileRef = DD7352742228D8780083B019 /* refresh_white.json */; };
+		DD7352782228D8780083B019 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = DD7352752228D8780083B019 /* refresh.json */; };
+		DD7352792228D8780083B019 /* refresh_pull.json in Resources */ = {isa = PBXBuildFile; fileRef = DD7352762228D8780083B019 /* refresh_pull.json */; };
+		DD73527F22290CF90083B019 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73527B22290CF90083B019 /* EmptyView.swift */; };
+		DD73528022290CF90083B019 /* BasicPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73527C22290CF90083B019 /* BasicPlaceholderView.swift */; };
+		DD73528122290CF90083B019 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73527D22290CF90083B019 /* LoadingView.swift */; };
+		DD73528222290CF90083B019 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73527E22290CF90083B019 /* ErrorView.swift */; };
 		DDAEAC4422253E2200418D6B /* BaseListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC4322253E2200418D6B /* BaseListProtocol.swift */; };
 		DDAEAC4622253E4600418D6B /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC4522253E4600418D6B /* BaseListViewController.swift */; };
 		DDAEAC4A222630A200418D6B /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAEAC49222630A200418D6B /* BaseTableViewCell.swift */; };
@@ -76,6 +84,14 @@
 		DD136A3A2217F7010009F812 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		DD136A3C2217F7E50009F812 /* BaseTabBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBtn.swift; sourceTree = "<group>"; };
 		DD15EF1521E0447D00096E20 /* BaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseExtensions.swift; sourceTree = "<group>"; };
+		DD7352702228D82C0083B019 /* BaseRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRefreshHeader.swift; sourceTree = "<group>"; };
+		DD7352742228D8780083B019 /* refresh_white.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh_white.json; sourceTree = "<group>"; };
+		DD7352752228D8780083B019 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
+		DD7352762228D8780083B019 /* refresh_pull.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh_pull.json; sourceTree = "<group>"; };
+		DD73527B22290CF90083B019 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		DD73527C22290CF90083B019 /* BasicPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPlaceholderView.swift; sourceTree = "<group>"; };
+		DD73527D22290CF90083B019 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DD73527E22290CF90083B019 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		DDAEAC4322253E2200418D6B /* BaseListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListProtocol.swift; sourceTree = "<group>"; };
 		DDAEAC4522253E4600418D6B /* BaseListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		DDAEAC49222630A200418D6B /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -217,6 +233,7 @@
 		DD136A382217F6E70009F812 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DD7352732228D8780083B019 /* Lotties */,
 				DD136A392217F6F40009F812 /* Fonts */,
 			);
 			path = Resources;
@@ -246,6 +263,27 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DD7352732228D8780083B019 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				DD7352742228D8780083B019 /* refresh_white.json */,
+				DD7352752228D8780083B019 /* refresh.json */,
+				DD7352762228D8780083B019 /* refresh_pull.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
+		DD73527A22290CF90083B019 /* PlaceholderViews */ = {
+			isa = PBXGroup;
+			children = (
+				DD73527C22290CF90083B019 /* BasicPlaceholderView.swift */,
+				DD73527B22290CF90083B019 /* EmptyView.swift */,
+				DD73527D22290CF90083B019 /* LoadingView.swift */,
+				DD73527E22290CF90083B019 /* ErrorView.swift */,
+			);
+			path = PlaceholderViews;
+			sourceTree = "<group>";
+		};
 		DDAEAC4122253D9300418D6B /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +302,7 @@
 		DDAEAC472226305F00418D6B /* List */ = {
 			isa = PBXGroup;
 			children = (
+				DD73527A22290CF90083B019 /* PlaceholderViews */,
 				DDAEAC482226307000418D6B /* Views */,
 				DDAEAC4322253E2200418D6B /* BaseListProtocol.swift */,
 				DDAEAC4522253E4600418D6B /* BaseListViewController.swift */,
@@ -276,6 +315,7 @@
 			children = (
 				DDAEAC4B222630CE00418D6B /* BaseCellProtocol.swift */,
 				DDAEAC49222630A200418D6B /* BaseTableViewCell.swift */,
+				DD7352702228D82C0083B019 /* BaseRefreshHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,8 +532,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD136A322217E0720009F812 /* Normal.plist in Resources */,
+				DD7352772228D8780083B019 /* refresh_white.json in Resources */,
 				DDFDF18421BE5DAB00B1FC31 /* LaunchScreen.storyboard in Resources */,
+				DD7352782228D8780083B019 /* refresh.json in Resources */,
 				DD136A3B2217F7010009F812 /* iconfont.ttf in Resources */,
+				DD7352792228D8780083B019 /* refresh_pull.json in Resources */,
 				DDFDF18121BE5DAB00B1FC31 /* Assets.xcassets in Resources */,
 				DD136A302217E0720009F812 /* Dark.plist in Resources */,
 				DDFDF17F21BE5DA900B1FC31 /* Main.storyboard in Resources */,
@@ -620,6 +663,8 @@
 				DDAEAC4E2226928F00418D6B /* TestListViewController.swift in Sources */,
 				DD136A202217B1180009F812 /* BaseViewController.swift in Sources */,
 				DDFDF17C21BE5DA900B1FC31 /* ViewController.swift in Sources */,
+				DD73528222290CF90083B019 /* ErrorView.swift in Sources */,
+				DD73528122290CF90083B019 /* LoadingView.swift in Sources */,
 				DDFDF1BF21BFD1C800B1FC31 /* UserService.swift in Sources */,
 				DD136A312217E0720009F812 /* MyThemes.swift in Sources */,
 				DD136A2B2217DAC80009F812 /* BaseTabBar.swift in Sources */,
@@ -629,12 +674,15 @@
 				DDAEAC4622253E4600418D6B /* BaseListViewController.swift in Sources */,
 				DDAEAC4422253E2200418D6B /* BaseListProtocol.swift in Sources */,
 				DDFDF1BD21BF9E1500B1FC31 /* APIConstants.swift in Sources */,
+				DD73527F22290CF90083B019 /* EmptyView.swift in Sources */,
 				DD136A222217B1480009F812 /* BaseNavigationController.swift in Sources */,
 				DD136A352217ED130009F812 /* Test1ViewController.swift in Sources */,
 				DDFDF1B221BF8B0100B1FC31 /* UserModel.swift in Sources */,
 				DDAEAC4A222630A200418D6B /* BaseTableViewCell.swift in Sources */,
 				DD136A272217DA660009F812 /* MainTabBarController.swift in Sources */,
+				DD7352712228D82D0083B019 /* BaseRefreshHeader.swift in Sources */,
 				DDAEAC4C222630CE00418D6B /* BaseCellProtocol.swift in Sources */,
+				DD73528022290CF90083B019 /* BasicPlaceholderView.swift in Sources */,
 				DD136A242217B1630009F812 /* BaseTabBarController.swift in Sources */,
 				DDFDF1AB21BE689B00B1FC31 /* Constants.swift in Sources */,
 				DDFDF1B521BF8BC200B1FC31 /* AccountManager.swift in Sources */,

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import MJRefresh
+import StatefulViewController
 
-class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDelegate, UITableViewDelegate, UITableViewDataSource {
+class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDelegate, UITableViewDelegate, UITableViewDataSource, StatefulViewController {
     
     // MARK: - 公有变量/方法Public
     /// 内边距
@@ -21,15 +23,15 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
 
     
     // MARK: - 私有变量/方法Private
-    
+    private var refreshed:Bool = false
     // MARK: - 协议BaseListProtocol
     var listType: ListType = .none
     
     var cellClass: BaseCellProtocol.Type = BaseTableViewCell.self
     
-    var headerType: HeaderRefreshType = .none
+    var headerType: HeaderRefreshType = .normal
     
-    var footerType: FooterRefreshType = .none
+    var footerType: FooterRefreshType = .normal
     
     var offset: String?
     
@@ -46,11 +48,32 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     var appearRefresh: Bool = false
     
     func setupRefresh() {
+        if headerType == .normal {
+            let refreshHeader: BaseRefreshHeader = BaseRefreshHeader {
+                self.headerRefresh()
+            }
+            contentListView?.mj_header = refreshHeader
+        }
         
+        if footerType == .normal {
+            
+            let refreshFooter:MJRefreshBackNormalFooter = MJRefreshBackNormalFooter {
+                self.refreshData()
+            }
+            refreshFooter.setTitle("暂无更多数据了", for: .noMoreData)
+//            refreshFooter.isAutomaticallyChangeAlpha = true
+            contentListView?.mj_footer = refreshFooter
+        }
+
     }
     
     func startRefresh(_ animated: Bool) {
-        headerRefresh()
+        
+        if animated && (contentListView?.mj_header) != nil {
+            contentListView?.mj_header.beginRefreshing()
+        }else{
+           headerRefresh()
+        }
     }
     
     func startRefreshAll() {
@@ -71,12 +94,13 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     }
     
     
-    private func refreshData() {
+    @objc private func refreshData() {
+        refreshed = true
         refreshing = true
         error = nil
         reloadEmptyData()
         refresh(offset: offset, limit: limit, success: {(rDatas:[Any]?, rOffset:String?) in
-            if self.offset != nil || self.removeAllDatas == true {
+            if self.offset == nil || self.removeAllDatas == true {
                 self.datas.removeAll()
                 self.removeAllDatas = false
             }
@@ -102,6 +126,22 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
         
         if listType == .table {
             tableView?.reloadData()
+        }else if listType == .collection {
+            
+        }
+        
+        if headerType == .normal {
+            if contentListView?.mj_header.isRefreshing ?? false {
+                contentListView?.mj_header.endRefreshing()
+            }
+        }
+        
+        if footerType == .normal {
+            if datas.count == 0 || more == false {
+                contentListView?.mj_footer.endRefreshingWithNoMoreData()
+            }else {
+                contentListView?.mj_footer.endRefreshing()
+            }
         }
         
         refreshDidEnd()
@@ -109,7 +149,12 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     
     
     private func reloadEmptyData() {
-        
+        if refreshing {
+            if (lastState == .Loading || datas.count > 0 ) { return }
+            startLoading()
+        }else {
+            endLoading(animated: true, error: error, completion: nil)
+        }
     }
 
     override func viewDidLoad() {
@@ -117,6 +162,15 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
 
         // Do any additional setup after loading the view.
         initSubViews()
+        
+        loadingView = LoadingView(frame: view.frame)
+        emptyView = EmptyView(frame: view.frame)
+        let failureView = ErrorView(frame: view.frame)
+        failureView.tapGestureRecognizer.addTarget(self, action: #selector(refreshData))
+        errorView = failureView
+        
+        setupInitialViewState()
+        
     }
     
     func initSubViews() {
@@ -190,4 +244,23 @@ class BaseListViewController: BaseViewController, BaseListProtocol, BaseCellDele
     }
     */
 
+}
+
+
+extension BaseListViewController {
+    
+    func hasContent() -> Bool {
+        if !refreshed {
+            return true;
+        }
+        return datas.count > 0
+    }
+    
+    func handleErrorWhenContentAvailable(_ error: Error) {
+        //TODO: 错误提示 - 需要修改
+        let alertController = UIAlertController(title: "Ooops", message: "Something went wrong.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }
