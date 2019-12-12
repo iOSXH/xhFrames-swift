@@ -186,15 +186,15 @@ var safeAreaInsetsForDeviceWithNotch: UIEdgeInsets {
 }
 
 /// 底部高度 试用于全面屏
-//var kBottomSafeHeight: CGFloat {
-//    if #available(iOS 11, *) {
-//        guard let w = UIApplication.shared.delegate?.window, let unwrapedWindow = w else {
-//            return 0.0
-//        }
-//        return unwrapedWindow.safeAreaInsets.bottom;
-//    }
-//    return 0.0
-//}
+var kSafeAreaInsets: UIEdgeInsets {
+    if #available(iOS 11, *) {
+        guard let w = UIApplication.shared.delegate?.window, let unwrapedWindow = w else {
+            return UIEdgeInsets.zero;
+        }
+        return unwrapedWindow.safeAreaInsets;
+    }
+    return UIEdgeInsets.zero;
+}
 
 
 /// 区分全面屏（iPhone X 系列）和非全面屏
